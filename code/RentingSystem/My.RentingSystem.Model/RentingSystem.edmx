@@ -1,0 +1,453 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="RentingSystemModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Advertisement">
+          <Key>
+            <PropertyRef Name="aid" />
+          </Key>
+          <Property Name="aid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="avalue" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="DataDictionary">
+          <Key>
+            <PropertyRef Name="did" />
+          </Key>
+          <Property Name="did" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="dkey" Type="nvarchar" MaxLength="50" />
+          <Property Name="dvalue" Type="nvarchar" MaxLength="50" />
+          <Property Name="dvalue2" Type="nvarchar" MaxLength="50" />
+          <Property Name="dvalue3" Type="nvarchar" MaxLength="50" />
+          <Property Name="remark" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="House">
+          <Key>
+            <PropertyRef Name="hid" />
+          </Key>
+          <Property Name="hid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="area" Type="int" Nullable="false" />
+          <Property Name="price" Type="int" Nullable="false" />
+          <Property Name="pay" Type="nvarchar" MaxLength="50" />
+          <Property Name="unitType" Type="nvarchar" MaxLength="50" />
+          <Property Name="floor" Type="nvarchar" MaxLength="50" />
+          <Property Name="community" Type="nvarchar" MaxLength="50" />
+          <Property Name="pubPerson" Type="nvarchar" MaxLength="50" />
+          <Property Name="time" Type="nvarchar" MaxLength="50" />
+          <Property Name="type" Type="nvarchar" MaxLength="50" />
+          <Property Name="isRecommend" Type="nvarchar" MaxLength="50" />
+          <Property Name="houseDesc" Type="text" />
+          <Property Name="region" Type="nvarchar" MaxLength="50" />
+          <Property Name="state" Type="nvarchar" MaxLength="50" />
+          <Property Name="audit" Type="nvarchar" MaxLength="50" />
+          <Property Name="city" Type="nvarchar" MaxLength="50" />
+          <Property Name="province" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="HouseMessage">
+          <Key>
+            <PropertyRef Name="hmid" />
+          </Key>
+          <Property Name="hmid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="hid" Type="int" Nullable="false" />
+          <Property Name="mid" Type="int" Nullable="false" />
+          <Property Name="uid" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Message">
+          <Key>
+            <PropertyRef Name="mid" />
+          </Key>
+          <Property Name="mid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="message" Type="nvarchar" MaxLength="50" />
+          <Property Name="time" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Orders">
+          <Key>
+            <PropertyRef Name="oid" />
+          </Key>
+          <Property Name="oid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="duration" Type="int" Nullable="false" />
+          <Property Name="rent" Type="int" Nullable="false" />
+          <Property Name="state" Type="nvarchar" MaxLength="50" />
+          <Property Name="time" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="OrdersUserHouse">
+          <Key>
+            <PropertyRef Name="ouhid" />
+          </Key>
+          <Property Name="ouhid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="oid" Type="int" Nullable="false" />
+          <Property Name="uid" Type="int" Nullable="false" />
+          <Property Name="hid" Type="int" Nullable="false" />
+          <Property Name="pubTime" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Picture">
+          <Key>
+            <PropertyRef Name="pid" />
+          </Key>
+          <Property Name="pid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="path" Type="nvarchar" MaxLength="255" />
+          <Property Name="hid" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="uid" />
+          </Key>
+          <Property Name="uid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="username" Type="nvarchar" MaxLength="50" />
+          <Property Name="password" Type="nvarchar" MaxLength="50" />
+          <Property Name="isSys" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="UserAuth">
+          <Key>
+            <PropertyRef Name="uaid" />
+          </Key>
+          <Property Name="uaid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="main" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="users" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="orders" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="house" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="others" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="uid" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UserInfo">
+          <Key>
+            <PropertyRef Name="uiid" />
+          </Key>
+          <Property Name="uiid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="50" />
+          <Property Name="sex" Type="nvarchar" MaxLength="50" />
+          <Property Name="phone" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="UserUserInfo">
+          <Key>
+            <PropertyRef Name="uuid" />
+          </Key>
+          <Property Name="uuid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="uid" Type="int" Nullable="false" />
+          <Property Name="uiid" Type="int" Nullable="false" />
+          <Property Name="pubTime" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityContainer Name="RentingSystemModelStoreContainer">
+          <EntitySet Name="Advertisement" EntityType="Self.Advertisement" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DataDictionary" EntityType="Self.DataDictionary" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="House" EntityType="Self.House" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="HouseMessage" EntityType="Self.HouseMessage" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Message" EntityType="Self.Message" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Orders" EntityType="Self.Orders" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OrdersUserHouse" EntityType="Self.OrdersUserHouse" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Picture" EntityType="Self.Picture" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserAuth" EntityType="Self.UserAuth" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserInfo" EntityType="Self.UserInfo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserUserInfo" EntityType="Self.UserUserInfo" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="RentingSystemModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Advertisement">
+          <Key>
+            <PropertyRef Name="aid" />
+          </Key>
+          <Property Name="aid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="avalue" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="HouseMessage">
+          <Key>
+            <PropertyRef Name="hmid" />
+          </Key>
+          <Property Name="hmid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="hid" Type="Int32" Nullable="false" />
+          <Property Name="mid" Type="Int32" Nullable="false" />
+          <Property Name="uid" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Message">
+          <Key>
+            <PropertyRef Name="mid" />
+          </Key>
+          <Property Name="mid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="message1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="time" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="uid" />
+          </Key>
+          <Property Name="uid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="username" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="isSys" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityContainer Name="RentingSystemEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Advertisement" EntityType="Self.Advertisement" />
+          <EntitySet Name="HouseMessage" EntityType="Self.HouseMessage" />
+          <EntitySet Name="Message" EntityType="Self.Message" />
+          <EntitySet Name="User" EntityType="Self.User" />
+          <EntitySet Name="Picture" EntityType="RentingSystemModel.Picture" />
+          <EntitySet Name="UserInfo" EntityType="RentingSystemModel.UserInfo" />
+          <EntitySet Name="UserUserInfo" EntityType="RentingSystemModel.UserUserInfo" />
+          <EntitySet Name="House" EntityType="RentingSystemModel.House" />
+          <EntitySet Name="OrdersUserHouse" EntityType="RentingSystemModel.OrdersUserHouse" />
+          <EntitySet Name="Orders" EntityType="RentingSystemModel.Orders" />
+          <EntitySet Name="UserAuth" EntityType="RentingSystemModel.UserAuth" />
+          <EntitySet Name="DataDictionary" EntityType="RentingSystemModel.DataDictionary" />
+        </EntityContainer>
+        <EntityType Name="Picture">
+          <Key>
+            <PropertyRef Name="pid" />
+          </Key>
+          <Property Name="pid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="path" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="hid" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UserInfo">
+          <Key>
+            <PropertyRef Name="uiid" />
+          </Key>
+          <Property Name="uiid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="sex" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="phone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="UserUserInfo">
+          <Key>
+            <PropertyRef Name="uuid" />
+          </Key>
+          <Property Name="uuid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="uid" Type="Int32" Nullable="false" />
+          <Property Name="uiid" Type="Int32" Nullable="false" />
+          <Property Name="pubTime" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="House">
+          <Key>
+            <PropertyRef Name="hid" />
+          </Key>
+          <Property Name="hid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="area" Type="Int32" Nullable="false" />
+          <Property Name="price" Type="Int32" Nullable="false" />
+          <Property Name="pay" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="unitType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="floor" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="community" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="pubPerson" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="time" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="isRecommend" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="houseDesc" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="region" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="state" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="audit" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="city" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="province" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="OrdersUserHouse">
+          <Key>
+            <PropertyRef Name="ouhid" />
+          </Key>
+          <Property Name="ouhid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="oid" Type="Int32" Nullable="false" />
+          <Property Name="uid" Type="Int32" Nullable="false" />
+          <Property Name="hid" Type="Int32" Nullable="false" />
+          <Property Name="pubTime" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Orders">
+          <Key>
+            <PropertyRef Name="oid" />
+          </Key>
+          <Property Name="oid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="duration" Type="Int32" Nullable="false" />
+          <Property Name="rent" Type="Int32" Nullable="false" />
+          <Property Name="state" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="time" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="UserAuth">
+          <Key>
+            <PropertyRef Name="uaid" />
+          </Key>
+          <Property Name="uaid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="main" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="users" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="orders" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="house" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="others" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="uid" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DataDictionary">
+          <Key>
+            <PropertyRef Name="did" />
+          </Key>
+          <Property Name="did" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="dkey" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="dvalue" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="dvalue2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="dvalue3" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="remark" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="RentingSystemModelStoreContainer" CdmEntityContainer="RentingSystemEntities">
+          <EntitySetMapping Name="Advertisement">
+            <EntityTypeMapping TypeName="RentingSystemModel.Advertisement">
+              <MappingFragment StoreEntitySet="Advertisement">
+                <ScalarProperty Name="aid" ColumnName="aid" />
+                <ScalarProperty Name="avalue" ColumnName="avalue" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HouseMessage">
+            <EntityTypeMapping TypeName="RentingSystemModel.HouseMessage">
+              <MappingFragment StoreEntitySet="HouseMessage">
+                <ScalarProperty Name="uid" ColumnName="uid" />
+                <ScalarProperty Name="hmid" ColumnName="hmid" />
+                <ScalarProperty Name="hid" ColumnName="hid" />
+                <ScalarProperty Name="mid" ColumnName="mid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Message">
+            <EntityTypeMapping TypeName="RentingSystemModel.Message">
+              <MappingFragment StoreEntitySet="Message">
+                <ScalarProperty Name="time" ColumnName="time" />
+                <ScalarProperty Name="mid" ColumnName="mid" />
+                <ScalarProperty Name="message1" ColumnName="message" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="User">
+            <EntityTypeMapping TypeName="RentingSystemModel.User">
+              <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="isSys" ColumnName="isSys" />
+                <ScalarProperty Name="uid" ColumnName="uid" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="password" ColumnName="password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Picture">
+            <EntityTypeMapping TypeName="RentingSystemModel.Picture">
+              <MappingFragment StoreEntitySet="Picture">
+                <ScalarProperty Name="hid" ColumnName="hid" />
+                <ScalarProperty Name="path" ColumnName="path" />
+                <ScalarProperty Name="pid" ColumnName="pid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserInfo">
+            <EntityTypeMapping TypeName="RentingSystemModel.UserInfo">
+              <MappingFragment StoreEntitySet="UserInfo">
+                <ScalarProperty Name="phone" ColumnName="phone" />
+                <ScalarProperty Name="sex" ColumnName="sex" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="uiid" ColumnName="uiid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserUserInfo">
+            <EntityTypeMapping TypeName="RentingSystemModel.UserUserInfo">
+              <MappingFragment StoreEntitySet="UserUserInfo">
+                <ScalarProperty Name="pubTime" ColumnName="pubTime" />
+                <ScalarProperty Name="uiid" ColumnName="uiid" />
+                <ScalarProperty Name="uid" ColumnName="uid" />
+                <ScalarProperty Name="uuid" ColumnName="uuid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="House">
+            <EntityTypeMapping TypeName="RentingSystemModel.House">
+              <MappingFragment StoreEntitySet="House">
+                <ScalarProperty Name="province" ColumnName="province" />
+                <ScalarProperty Name="city" ColumnName="city" />
+                <ScalarProperty Name="audit" ColumnName="audit" />
+                <ScalarProperty Name="state" ColumnName="state" />
+                <ScalarProperty Name="region" ColumnName="region" />
+                <ScalarProperty Name="houseDesc" ColumnName="houseDesc" />
+                <ScalarProperty Name="isRecommend" ColumnName="isRecommend" />
+                <ScalarProperty Name="type" ColumnName="type" />
+                <ScalarProperty Name="time" ColumnName="time" />
+                <ScalarProperty Name="pubPerson" ColumnName="pubPerson" />
+                <ScalarProperty Name="community" ColumnName="community" />
+                <ScalarProperty Name="floor" ColumnName="floor" />
+                <ScalarProperty Name="unitType" ColumnName="unitType" />
+                <ScalarProperty Name="pay" ColumnName="pay" />
+                <ScalarProperty Name="price" ColumnName="price" />
+                <ScalarProperty Name="area" ColumnName="area" />
+                <ScalarProperty Name="hid" ColumnName="hid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OrdersUserHouse">
+            <EntityTypeMapping TypeName="RentingSystemModel.OrdersUserHouse">
+              <MappingFragment StoreEntitySet="OrdersUserHouse">
+                <ScalarProperty Name="pubTime" ColumnName="pubTime" />
+                <ScalarProperty Name="hid" ColumnName="hid" />
+                <ScalarProperty Name="uid" ColumnName="uid" />
+                <ScalarProperty Name="oid" ColumnName="oid" />
+                <ScalarProperty Name="ouhid" ColumnName="ouhid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Orders">
+            <EntityTypeMapping TypeName="RentingSystemModel.Orders">
+              <MappingFragment StoreEntitySet="Orders">
+                <ScalarProperty Name="time" ColumnName="time" />
+                <ScalarProperty Name="state" ColumnName="state" />
+                <ScalarProperty Name="rent" ColumnName="rent" />
+                <ScalarProperty Name="duration" ColumnName="duration" />
+                <ScalarProperty Name="oid" ColumnName="oid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserAuth">
+            <EntityTypeMapping TypeName="RentingSystemModel.UserAuth">
+              <MappingFragment StoreEntitySet="UserAuth">
+                <ScalarProperty Name="uid" ColumnName="uid" />
+                <ScalarProperty Name="others" ColumnName="others" />
+                <ScalarProperty Name="house" ColumnName="house" />
+                <ScalarProperty Name="orders" ColumnName="orders" />
+                <ScalarProperty Name="users" ColumnName="users" />
+                <ScalarProperty Name="main" ColumnName="main" />
+                <ScalarProperty Name="uaid" ColumnName="uaid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DataDictionary">
+            <EntityTypeMapping TypeName="RentingSystemModel.DataDictionary">
+              <MappingFragment StoreEntitySet="DataDictionary">
+                <ScalarProperty Name="remark" ColumnName="remark" />
+                <ScalarProperty Name="dvalue3" ColumnName="dvalue3" />
+                <ScalarProperty Name="dvalue2" ColumnName="dvalue2" />
+                <ScalarProperty Name="dvalue" ColumnName="dvalue" />
+                <ScalarProperty Name="dkey" ColumnName="dkey" />
+                <ScalarProperty Name="did" ColumnName="did" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="无" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

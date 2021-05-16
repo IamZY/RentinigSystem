@@ -1,0 +1,285 @@
+﻿@{
+    var user = @Session["user"] as My.RentingSystem.Model.User;
+    var nav = Session["nav"];
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="Author" contect="http://www.webqin.net">
+    <title>宜居-给你适宜居住的家</title>
+    <link rel="shortcut icon" href="~/assets/images/favicon.ico" />
+    <link type="text/css" href="~/assets/css/css.css" rel="stylesheet" />
+    <script type="text/javascript" src="~/assets/js/jquery.js"></script>
+    <script type="text/javascript" src="~/assets/js/js.js"></script>
+    <link rel="stylesheet" href="//at.alicdn.com/t/font_848666_pri5cwk3xde.css" />
+    <script type="text/javascript">
+     
+     //$(function(){
+     //    //导航定位
+     //    $(".nav li:eq(0)").addClass("navCur").siblings("li").removeClass("navCur");
+	 //    //$(".nav li:eq(0)").addClass("navCur");
+	 //})
+    </script>
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <div class="header">
+        <div class="width1190">
+            <div class="fl">您好，欢迎来到宜居！
+                <select style="background-color: #f1f1f1" id="provinceChange">
+                    @{
+                        foreach (var item in @Session["provinces"] as List<string>) 
+                        {
+                            <option value="@item">@item</option>
+                        }
+                    }
+                </select>
+
+                @{
+                    if (Session["selectCity"] != null)
+                    {
+                        <select style="background-color: #f1f1f1" id="cityChange">
+                            @*<option>北京市</option>*@
+                            @foreach (var item in Session["selectCity"] as List<string>) 
+                            {
+                                <option value="@item">@item</option>
+                            }
+                        </select>
+                    }
+                    else
+                    {
+                        @*<select style="background-color: #f1f1f1" id="cityChange">
+                            <option value="洛阳市">洛阳市</option>
+                        </select>*@
+                    
+                        <select style="background-color: #f1f1f1" id="cityChange">
+                            @foreach (var item in Session["defaultCity"] as List<string>)
+                            {
+                                <option value="@item">@item</option>
+                            }
+                        </select>
+                    }
+}
+
+                
+                @*<select style="background-color: #f1f1f1" id="regionChange">
+                    <option>东城区</option>
+                </select>*@
+            </div>
+            
+            <div class="fr">
+
+                @if (@Session["user"] == null)
+                {
+                    <a href="~/User/Login">登录</a> <a>|</a>
+                    <a href="~/User/Reg">注册</a>   <a>|</a>
+                    <a href="javascript:;" onclick="AddFavorite(window.location,document.title)">加入收藏</a> 
+                    <a>|</a>
+                    <a href="javascript:;" onclick="SetHome(this,window.location)">设为首页</a>
+                }
+                else
+                {
+                    <a href="@Url.Action("Personal", "User", new { id=user.uid })">欢迎！@user.username</a>    <a>|</a>
+                    <a href="@Url.Action("Index", "House", new { id=@user.uid })">发布房屋</a><a>|</a>
+                    <a href="@Url.Action("MyOrder", "Orders", new { id = @user.uid })">订单页</a><a>|</a>
+                    <a href="~/User/Logout">退出</a>
+                }
+                         
+            </div>
+            <div class="clears"></div>
+        </div><!--width1190/-->
+    </div><!--header/-->
+    <div class="logo-phone">
+        <div class="width1190">
+            <h1 class="logo">
+                <a href="@Url.Action("Index","Home")">
+                    <img src="~/assets/images/logo.png" style="width:100%;height: 70px" />
+                </a></h1>
+            <div class="phones"><strong>400-400-4000</strong></div>
+            <div class="clears"></div>
+        </div><!--width1190/-->
+    </div><!--logo-phone/-->
+    <div class="list-nav">
+        <div class="width1190">
+            <div class="list">
+                <h3>房源分类</h3>
+                <div class="list-list">
+                    <dl id="houseArea">
+                        <dt><a href="javascript:;">房源区域</a></dt>
+                        <dd>
+                            @{
+                                foreach (var item in @Session["region"] as List<My.RentingSystem.Model.DataDictionary>)
+                                {
+                                    <a href="~/Rent/RentHouse">@item.dvalue</a>
+                                }
+                            }
+                        </dd>
+                    </dl>
+                    <dl>
+                        <dt><a href="~/Rent/RentHouse">租房</a></dt>
+                        <dd>
+                            <a href="~/Rent/RentHouse">租金</a>
+                            <a href="~/Rent/RentHouse">出租方式</a>
+                            <a href="~/Rent/RentHouse">面积</a>
+                            <a href="~/Rent/RentHouse">房型</a>
+                        </dd>
+                    </dl>
+                    <dl>
+                        <dt><a href="~/Rent/newHouse">新房</a></dt>
+                        <dd>
+                            <a href="~/Rent/newHouse">价格</a>
+                            <a href="~/Rent/newHouse">面积</a>
+                            <a href="~/Rent/newHouse">房型</a>
+                        </dd>
+                    </dl>
+                    <dl>
+                        <dt><a href="~/Rent/SecondHouse">二手房</a></dt>
+                        <dd>
+                            <a href="~/Rent/SecondHouse">价格</a>
+                            <a href="~/Rent/SecondHouse">面积</a>
+                            <a href="~/Rent/SecondHouse">房型</a>
+                        </dd>
+                    </dl>
+                </div>
+            </div><!--list/-->
+            <ul class="nav">
+                <li><a href="~/Home/Index">首页</a></li>
+                @*<li><a href="~/Rent/RentHouse">租房</a></li>
+                <li><a href="~/Rent/newHouse">新房</a></li>
+                <li><a href="~/Rent/SecondHouse">二手房</a></li>*@
+                <li><a href="~/Rent/RentHouse">租房</a></li>
+                <li><a href="~/Rent/newHouse">新房</a></li>
+                <li><a href="~/Rent/SecondHouse">二手房</a></li>
+                @*<li class="zhiding"><a href="javascript:;">指定购房</a></li>
+                <li><a href="~/assets/user_jingji.html">申请自由经纪人</a></li>*@
+                <li><a href="~/About/Index">关于我们</a></li>
+                <div class="clears"></div>
+            </ul><!--nav/-->
+            <div class="clears"></div>
+        </div><!--width1190/-->
+    </div><!--list-nav/-->
+    <div class="banner" style="background:url(/assets/images/ban.jpg) center center no-repeat;"></div>
+
+
+    @RenderBody()
+
+    <div class="footer">
+        <div class="width1190">
+            <div class="fl"><a href="~/assets/index.html"><strong>400-400-4000</strong></a><a href="~/About/Index">关于我们</a><a href="~/Contact/Index">联系我们</a><a href="~/assets/user.html">个人中心</a></div>
+            <div class="fr">
+                <dl>
+                    <dt><img src="~/assets/images/erweima.png" width="76" height="76" /></dt>
+                    <dd>微信扫一扫<br />房价点评，精彩发布</dd>
+                </dl>
+                <dl>
+                    <dt><img src="~/assets/images/erweima.png" width="76" height="76" /></dt>
+                    <dd>微信扫一扫<br />房价点评，精彩发布</dd>
+                </dl>
+                <div class="clears"></div>
+            </div>
+            <div class="clears"></div>
+        </div><!--width1190/-->
+    </div><!--footer/-->
+    <div class="copy">Copyright@@ 2020 XXX 版权所有 沪ICP备XXX号-0&nbsp;&nbsp;&nbsp;&nbsp;技术支持：<a target="_blank" href="/">XXX</a> </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @RenderSection("scripts", required: false)
+</body>
+</html>
+
+<script>
+    //$(".nav li").click(function () {
+    //    //alert($(this).text())
+    //    //$(this).addClass("navCur").siblings("li").removeClass("navCur");
+    //    $(this).addClass("navCur");
+    //})
+
+    $("#provinceChange").change(function () {
+        //alert($(this).val())
+        var _city = $(this).val()
+        $.get(
+            "@Url.Action("getCity", "Home")",
+            {
+                province: $(this).val()
+            },
+            function (data) {
+                //console.log(data)
+                //$("#cityChange").te
+                // 先清空第二个
+                $("#cityChange").empty();
+                // 实际的应用中，这里的option一般都是用循环生成多个了
+                //$("#cityChange").append("<option>请选择</option>");
+                for (var i = 0; i < data.length; i++) {
+                    var option = $("<option>").val(data[i]).text(data[i]);
+                    $("#cityChange").append(option);
+                }
+
+                //var _city = $("#cityChange option:selected").text()
+                window.location.href = "@Url.Action("Index","Home")"
+            })
+    })
+
+    $("#cityChange").change(function () {
+        //alert($("#cityChange option:selected").text())
+        $.get(
+            "@Url.Action("changeSession", "Home")",
+            {
+                city: $("#cityChange option:selected").text()
+            },
+            function (data) {
+                window.location.href = "@Url.Action("Index","Home")"
+            })
+    })
+
+
+</script>
+
+<style>
+    .household-appliances{
+    width: 740px;
+    height: 240px;
+    border-bottom: 1px solid #e2e2e2;
+}
+.household-appliances ul li {
+    display: block;
+    width: 88px;
+    margin-left: 15px;
+    padding-top: 10px;
+    float: left;
+    text-align: center;
+}
+.household-appliances ul li span {
+    display: block;
+    color: #d9d9d9;
+    font-size: 14px;
+    padding-top: 15px;
+    padding-bottom: 34px;
+}
+.household-appliances ul li i {
+    width: 49px;
+    height: 40px;
+    line-height: 40px;
+    font-size: 43px;
+    color: #757575;
+    display: block;
+    margin: 0 auto;
+}
+    a:hover {
+        color: #f6b26b
+    }
+    img:hover {
+        color: #f6b26b
+    }
+
+    #houseArea {
+        overflow: hidden;    
+        display: -webkit-box; 
+        text-overflow: ellipsis; 
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 3;
+    }
+
+</style>

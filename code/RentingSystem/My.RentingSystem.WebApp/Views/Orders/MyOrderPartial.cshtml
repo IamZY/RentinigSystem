@@ -1,0 +1,43 @@
+﻿@{
+    Layout = null;
+}
+
+    @{
+        for (int i = 0; i < @ViewBag.hps.Count; i++)
+        {
+            <dl>
+                <dt><a href="@Url.Action("HouseInfo", "Rent", new { id = @ViewBag.hps[i].hid })"><img src="@ViewBag.hps[i].pics[0].path" width="190" height="128" /></a></dt>
+                <dd>
+                    <h3><a href="@Url.Action("HouseInfo", "Rent", new { id = @ViewBag.hps[i].hid })">@ViewBag.hps[i].community</a></h3>
+                    <div class="guantext">@ViewBag.hps[i].region @ViewBag.hps[i].houseDesc</div>
+                    <div class="guantext">@ViewBag.hps[i].unitType | @ViewBag.hps[i].area 平米 | @ViewBag.hps[i].floor</div>
+                    <div class="guantext">租金:&nbsp; @ViewBag.hps[i].price 元 / 月 &nbsp;&nbsp;&nbsp; 租赁时长:&nbsp; @ViewBag.orders[i].duration 月</div>
+                    @if (@ViewBag.orders[i].state == "0")
+                    {
+                        <div class="guantext" style="color:red">已下单</div>
+                        <div class="guantext2">
+                            订单时间：@ViewBag.orders[i].time
+                            <a id="pay" href="@Url.Action("PayOrder", "Orders", new { id=@ViewBag.orders[i].oid })" class="qxgz">支付订单</a>
+                            <a id="cancel" href="@Url.Action("CancelOrder", "Orders", new { oid = @ViewBag.orders[i].oid, hid = @ViewBag.hps[i].hid })" class="qxgz">取消订单</a>
+                        </div>
+                    }
+                    @if (@ViewBag.orders[i].state == "1")
+                    {
+                        <div class="guantext" style="color:green">已支付</div>
+                        <div class="guantext2">
+                            订单时间：@ViewBag.orders[i].time
+                            @*<a id="cancel" href="@Url.Action("CancelOrder", "Orders", new { oid = @ViewBag.orders[i].oid, hid = @ViewBag.hps[i].hid })" class="qxgz">删除订单</a>*@
+                        </div>
+                    }
+                    @*<div class="guantext2">
+                        订单时间：@ViewBag.orders[i].time
+                        <a id="pay" href="@Url.Action("PayOrder", "Orders", new { id=@ViewBag.orders[i].oid })" class="qxgz">支付订单</a>
+                        <a id="cancel" href="@Url.Action("CancelOrder", "Orders", new { oid = @ViewBag.orders[i].oid, hid = @ViewBag.hps[i].hid })" class="qxgz">取消订单</a>
+                    </div>*@
+                </dd>
+                <div class="price">¥ <strong>@ViewBag.orders[i].rent</strong><span class="font12">元</span></div>
+                <div class="clearfix"></div>
+            </dl>
+        }
+    }
+

@@ -1,0 +1,14 @@
+D:\src\vs2013\RentingSystem\My.RentingSystem.IBLL\bin\Debug\My.RentingSystem.IBLL.dll
+D:\src\vs2013\RentingSystem\My.RentingSystem.IBLL\bin\Debug\My.RentingSystem.IBLL.pdb
+D:\src\vs2013\RentingSystem\My.RentingSystem.IBLL\bin\Debug\My.RentingSystem.IDAL.dll
+D:\src\vs2013\RentingSystem\My.RentingSystem.IBLL\bin\Debug\My.RentingSystem.Model.dll
+D:\src\vs2013\RentingSystem\My.RentingSystem.IBLL\bin\Debug\My.RentingSystem.IDAL.pdb
+D:\src\vs2013\RentingSystem\My.RentingSystem.IBLL\bin\Debug\My.RentingSystem.Model.pdb
+D:\src\vs2013\RentingSystem\My.RentingSystem.IBLL\obj\Debug\My.RentingSystem.IBLL.csprojResolveAssemblyReference.cache
+D:\src\vs2013\RentingSystem\My.RentingSystem.IBLL\obj\Debug\My.RentingSystem.IBLL.dll
+D:\src\vs2013\RentingSystem\My.RentingSystem.IBLL\obj\Debug\My.RentingSystem.IBLL.pdb
+D:\src\vs2013\RentingSystem\My.RentingSystem.IBLL\bin\Debug\EntityFramework.dll
+D:\src\vs2013\RentingSystem\My.RentingSystem.IBLL\bin\Debug\EntityFramework.xml
+D:\src\vs2013\RentingSystem\My.RentingSystem.IBLL\bin\Debug\My.RentingSystem.IBLL.dll.config
+D:\src\vs2013\RentingSystem\My.RentingSystem.IBLL\bin\Debug\EntityFramework.SqlServer.dll
+D:\src\vs2013\RentingSystem\My.RentingSystem.IBLL\bin\Debug\EntityFramework.SqlServer.xml

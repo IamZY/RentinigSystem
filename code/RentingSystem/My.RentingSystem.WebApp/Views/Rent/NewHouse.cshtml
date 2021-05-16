@@ -1,0 +1,129 @@
+﻿@{
+    ViewBag.Title = "NewHouse";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="content">
+    <div class="width1190">
+        <form action="~/Rent/newHouse" method="post" class="pro-search" id="form">
+            <table>
+                <tr>
+                    <th>房源区域：</th>
+                    <td>
+                        <a href="javascript:;" class="pro-cur">不限 </a>
+                        @{
+                            foreach (var item in @Session["region"] as List<My.RentingSystem.Model.DataDictionary>)
+                            {
+                                <a href="javascript:;">@item.dvalue </a>
+                            }
+                        }
+
+                    </td>
+                </tr>
+                <tr>
+                    <th>租金：</th>
+                    <td>
+                        <a href="javascript:;" class="pro-cur">不限 </a>
+                        <a href="javascript:;">500-1000 </a>
+                        <a href="javascript:;">1001-2000 </a>
+                        <a href="javascript:;">2001-3000 </a>
+                        <a href="javascript:;">3000以上 </a>
+                        @*<input type="text" class="protext" /> - <input type="text" class="protext" /> 元*@
+
+                    </td>
+                </tr>
+                <tr>
+                    <th>面积：</th>
+                    <td>
+                        <a href="javascript:;" class="pro-cur">不限 </a>
+                        <a href="javascript:;">10-40平方 </a>
+                        <a href="javascript:;">41-60平方 </a>
+                        <a href="javascript:;">61-80平方 </a>
+                        <a href="javascript:;">100平方以上 </a>
+                    </td>
+                </tr>
+                <tr>
+                    <th>房型：</th>
+                    <td>
+                        <a href="javascript:;" class="pro-cur">不限 </a>
+                        <a href="javascript:;">两室一厅一卫 </a>
+                        <a href="javascript:;">三室两厅两卫 </a>
+                        <a href="javascript:;">一室 </a>
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                        @*<input type="button" class="proSub" id="submit" value="查询" />*@
+                    </td>
+                </tr>
+            </table>
+            <div class="paixu">
+                <strong>排序：</strong>
+                <a href="javascript:;" class="pai-cur">默认</a>
+
+                @*<a href="javascript:;">价格 &or;</a>
+            <a href="javascript:;">最新 &or;</a>*@
+                <a href="javascript:;" class="price1">价格 ▲</a>
+                <a href="javascript:;">最新 &or;</a>
+            </div>
+        </form><!--pro-search/-->
+    </div><!--width1190/-->
+
+    <div id="partial"></div>
+    @Scripts.Render("~/bundles/jquery")
+
+</div><!--content/-->
+
+<script>
+    $(document).ready(function () {
+        //alert("aaaa")
+        $.get(
+            "partialNewHouse",
+            function (data) {
+                $("#partial").html(data)
+            })
+    })
+
+
+    $("#form a").click(function () {
+        $(this).addClass("pro-cur").siblings("a").removeClass("pro-cur");
+        var str = $('.pro-cur').text()
+        //alert(str)
+        var region = str.split(' ')[0]
+        var rent = str.split(' ')[1]
+        var area = str.split(' ')[2]
+        var unitType = str.split(' ')[3]
+        var order = str.split(' ')[4]
+        var jt = str.split(' ')[5]
+        //alert(order)
+        var orderPrice = ''
+        //console.log($(".price1").text())
+        if (jt == '▲') {
+            $(".price1").text('价格 ▼')
+            orderPrice = 'desc'
+        }
+
+        if (jt == '▼') {
+            $(".price1").text('价格 ▲')
+            orderPrice = 'asc'
+        }
+        $.post(
+            "NewHouse",
+            {
+                region: region,
+                rent: rent,
+                area: area,
+                unitType: unitType,
+                order: order,
+                orderPrice: orderPrice,
+            },
+            function (data) {
+                console.log(data)
+                $("#partial").html(data)
+            })
+        //sleep()
+    })
+
+    $(function () {
+        //导航定位
+        $(".nav li:eq(2)").addClass("navCur").siblings("li").removeClass("navCur");
+        //$(".nav li:eq(0)").addClass("navCur");
+    })
+</script>

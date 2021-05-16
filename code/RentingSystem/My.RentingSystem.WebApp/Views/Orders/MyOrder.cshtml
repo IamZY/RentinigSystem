@@ -1,0 +1,63 @@
+﻿@{
+    ViewBag.Title = "MyOrder";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    My.RentingSystem.Model.User u = @Session["user"] as My.RentingSystem.Model.User;
+}
+
+<div class="content">
+    <div class="width1190">
+        <div class="vip-left">
+            <div class="vipNav">
+                <h3 class="vipTitle">会员中心</h3>
+                <dl>
+                    <dt class="vipIcon3">账户设置</dt>
+                    <dd>
+                        <a href="@Url.Action("Personal", "User", new { id=u.uid })">我的资料</a>
+                        <a href="#">账户密码设置</a>
+                    </dd>
+                    <dt class="vipIcon1">我的内容</dt>
+                    <dd>
+                        <a href="@Url.Action("MyOrder", "Orders", new { id = u.uid })" class="vipNavCur">我的订单</a>
+                        <a href="@Url.Action("Index", "House", new { id=@u.uid })">发布房屋</a>
+                        <a href="@Url.Action("MyAddHouse", "House", new { id=@u.uid })">我的发布</a>
+                    </dd>
+                </dl>
+            </div><!--vipNav/-->
+        </div><!--vip-left/-->
+        <div class="vip-right">
+            <h3 class="vipright-title">我的订单</h3>
+            <div class="guanzhulist" style="display: block;"></div>
+            @*<div class="guanzhulist" style="display: block;">
+                
+            </div>*@
+        </div><!--vip-right/-->
+        <div class="clearfix"></div>
+    </div><!--width1190/-->
+</div><!--content/-->
+
+<script>
+    $(document).ready(function () {
+        $.get("@Url.Action("MyOrderPartial", "Orders", new { id=@ViewBag.uid })", function (data) {
+            //console.log(data)
+            //$("#partial").innerHTML = data
+            $(".guanzhulist").html(data)
+        })
+    })
+
+    @*$("#pay").click(function () {
+        $.get("@Url.Action("PayOrder", "Orders", new { id=@ViewBag.orders[i].oid })", function (data) {
+            console.log(data)
+            //$("#partial").innerHTML = data
+            $(".guanzhulist").html(data)
+        })
+    })
+
+    $("#cancel").click(function () {
+        $.get("@Url.Action("CancelOrder", "Orders", new { oid = @ViewBag.orders[i].oid, hid = @ViewBag.hps[i].hid })", function (data) {
+            console.log(data)
+            //$("#partial").innerHTML = data
+            $(".guanzhulist").html(data)
+        })
+    })*@
+
+</script>

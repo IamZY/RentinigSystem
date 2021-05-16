@@ -1,0 +1,462 @@
+﻿@{
+    ViewBag.Title = "";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    My.RentingSystem.Model.User u = @Session["user"] as My.RentingSystem.Model.User;
+}
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>上传图片</title>
+    <!-- <link rel="stylesheet" href="css/bootstrap.min.css"> -->
+    <link rel="stylesheet" href="https://at.alicdn.com/t/font_1805932_ysrcp4y0uy9.css">
+    <link rel="stylesheet" href="~/assets/upload/css/uploadImg.css">
+    <script src="https://www.jq22.com/jquery/jquery-1.10.2.js"></script>
+    <script src="https://cdn.bootcss.com/layer/2.3/layer.js"></script>
+    <style>
+    </style>
+</head>
+
+
+<div class="content">
+    <div class="width1190">
+        <div class="vip-left">
+            <div class="vipNav">
+                <h3 class="vipTitle">会员中心</h3>
+                <dl>
+                    <dt class="vipIcon3">账户设置</dt>
+                    <dd>
+                        <a href="@Url.Action("Personal", "User", new { id=u.uid })">我的资料</a>
+                        <a href="#">账户密码设置</a>
+                    </dd>
+                    <dt class="vipIcon1">我的内容</dt>
+                    <dd>
+                        <a href="@Url.Action("MyOrder", "Orders", new { id = u.uid })">我的订单</a>
+                        <a href="@Url.Action("Index", "House", new { id=@u.uid })" class="vipNavCur">发布房屋</a>
+                        <a href="@Url.Action("MyAddHouse", "House", new { id=@u.uid })">我的发布</a>
+                    </dd>
+                </dl>
+            </div><!--vipNav/-->
+        </div><!--vip-left/-->
+        <div class="vip-right">
+
+            <h3 class="vipright-title">发布房屋</h3>
+            <div class="main">
+                <form method="post" action="@Url.Action("submitHouse","House")" enctype="multipart/form-data">
+                    <table class="grinfo">
+                        <tbody>
+
+                            <tr>
+                                <th><span class="red">*</span> 省：</th>
+                                <td>
+                                    <select id="province" name="province">
+                                        @{
+                                            foreach (var item in @ViewBag.province)
+                                            {
+                                                <option value="@item">@item</option>
+                                            }
+                                        }
+                                    </select>
+                                </td>
+                            </tr>
+
+
+                            <tr>
+                                <th><span class="red">*</span> 城市：</th>
+                                <td>
+                                    <select id="city" name="city">
+                                        <option value="北京市">北京市</option>
+                                    </select>
+                                </td>
+                            </tr>
+
+
+                            <tr>
+                                <th><span class="red">*</span> 区县：</th>
+                                <td>
+                                    <select id="region" name="region">
+                                        @{
+                                            foreach (var item in @ViewBag.region)
+                                            {
+                                                <option value="@item">@item</option>
+                                            }
+                                        }
+                                    </select>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <th><span class="red">*</span> 类型：</th>
+                                <td>
+                                    @*<input class="inp inw" type="text" id="title" value="" maxlength="14">*@
+                                    <select name="type">
+                                        <option value="1">租房</option>
+                                        <option value="2">新房</option>
+                                        <option value="3">二手房</option>
+                                    </select>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <th><span class="red">*</span> 面积：</th>
+                                <td>
+                                    <input class="inp inw" type="text" id="title" name="area" value="" maxlength="14"> (例:70㎡)
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <th><span class="red">*</span> 租金：</th>
+                                <td>
+                                    <input class="inp inw" type="text" id="title" name="price" value="" maxlength="14"> (例:3000)
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <th><span class="red">*</span> 期限：</th>
+                                <td>
+                                    <input class="inp inw" type="text" id="title" value="" name="pay" maxlength="14"> (例:月/年)
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <th><span class="red">*</span> 类型：</th>
+                                <td>
+                                    <input class="inp inw" type="text" id="title" value=""name="unitType" maxlength="14">(例:两室一厅一卫)
+                                </td>
+                            </tr>
+
+
+                            <tr>
+                                <th><span class="red">*</span> 楼层：</th>
+                                <td>
+                                    <input class="inp inw" type="text" id="title" value="" name="floor" maxlength="14">(例:2层/18层)
+                                </td>
+                            </tr>
+
+
+                            <tr>
+                                <th><span class="red">*</span> 小区名：</th>
+                                <td>
+                                    <input class="inp inw" type="text" id="title" value="" name="community" maxlength="14">
+                                </td>
+                            </tr>
+
+
+                            <tr>
+                                <th><span class="red">*</span> 描述：</th>
+                                <td>
+                                    <textarea class="grtextarea" name="houseDesc" style="resize:none"></textarea>
+                                </td>
+                            </tr>
+
+
+                            @*<tr>
+                                <th><span class="red">*</span> 图片上传：</th>
+                                <td>
+                                    <input type="file" name="images" multiple="multiple" id="file" />
+                                    <div id="show">
+
+                                    </div>
+                                </td>
+                                
+                            </tr>*@
+                            
+                            <tr>
+                                <th><span class="red">*</span> 图片上传：</th>
+                                <td>
+                                    <span class="add choose">添加</span>
+                                    <input type="file" name="images" id="choose-file" multiple="multiple" style="opacity: 0" />
+                                    <ul class="file-list "></ul>
+                                </td>
+
+                            </tr>
+                            
+
+                        </tbody>
+                    </table>
+                  
+
+                    <div style="text-align:center">
+                        <input class="member_mod_buttom" type="submit" value="提交" />
+                    </div>
+                        
+                </form>
+               
+            </div><!--main-->
+        </div><!--vip-right/-->
+        <div class="clearfix"></div>
+    </div><!--width1190/-->
+</div><!--content/-->
+
+
+    <!-- <script>
+    </script> -->
+@*<script src="https://cdn.bootcss.com/layer/2.3/layer.js"></script>*@
+<script src="~/assets/upload/js/bootstrap.min.js"></script>
+<script src="~/assets/upload/js/uploadImg.js"></script>
+
+<script>
+
+    //$("#file").change(function () {
+    //    console.log($(this).context.files)
+    //    var files = $(this).context.files
+    //    console.log(files.length)
+    //    var data = ''
+    //    for (var i = 0; i < files.length; i++) {
+    //        //console.log(files[i].name)
+    //        data += files[i].name + '&nbsp;&nbsp;&nbsp;<a href="#" id="del">x</a><br/>'
+    //    }
+    //    $("#show").html(data)
+    //})
+
+    //$("#del").click(function () {
+
+
+
+    //})
+
+
+    $(function () {
+        $('.choose').click(function () {
+            $('#choose-file').click();
+        })
+        ////////////////////////////////////////////////图片上传//////////////////////////////////////////////
+        //声明变量
+        var $button = $('#upload'),
+            //选择文件按钮
+            $file = $("#choose-file"),
+            //回显的列表
+            $list = $('.file-list'),
+            //选择要上传的所有文件
+            fileList = [];
+        //当前选择上传的文件
+        var curFile;
+        // 选择按钮change事件，实例化fileReader,调它的readAsDataURL并把原生File对象传给它，
+        // 监听它的onload事件，load完读取的结果就在它的result属性里了。它是一个base64格式的，可直接赋值给一个img的src.
+        $file.on('change', function (e) {
+            //上传过图片后再次上传时限值数量
+            //alert("upload")
+            var numold = $('li').length;
+            //alert("numold" + numold)
+            //if (numold >= 6) {
+            //    layer.alert('最多上传6张图片');
+            //    return;
+            //}
+            ////限制单次批量上传的数量
+            //var num = e.target.files.length;
+            //var numall = numold + num;
+            //if (num > 6) {
+            //    layer.alert('最多上传6张图片');
+            //    return;
+            //} else if (numall > 6) {
+            //    layer.alert('最多上传6张图片');
+            //    return;
+            //}
+            //原生的文件对象，相当于$file.get(0).files;//files[0]为第一张图片的信息;
+            curFile = this.files;
+            //curFile = $file.get(0).files;
+            //console.log(curFile);
+            //将FileList对象变成数组
+            fileList = fileList.concat(Array.from(curFile));
+            //console.log(fileList);
+            for (var i = 0, len = curFile.length; i < len; i++) {
+                reviewFile(curFile[i])
+            }
+            $('.file-list').fadeIn(2500);
+        })
+
+
+        function reviewFile(file) {
+            //实例化fileReader,
+            var fd = new FileReader();
+            //获取当前选择文件的类型
+            var fileType = file.type;
+            //调它的readAsDataURL并把原生File对象传给它，
+            fd.readAsDataURL(file);//base64
+            //监听它的onload事件，load完读取的结果就在它的result属性里了
+            fd.onload = function () {
+                if (/^image\/[jpeg|png|jpg|gif]/.test(fileType)) {
+                    $list.append('<li class="file-item"><img src="' + this.result + '" alt="" height="70"><span class="file-del"><i class="iconfont ">&#xe636;</i></span></li>').children(':last').hide().fadeIn(2500);
+                } else {
+                    $list.append('<li class="file-item"><span class="file-name">' + file.name + '</span><span class="file-del"><i class="iconfont ">&#xe636;</i></span></li>')
+                }
+
+            }
+        }
+
+        //点击删除按钮事件：
+        $(".file-list").on('click', '.file-del', function () {
+            let $parent = $(this).parent();
+            console.log('remove' + $parent);
+            let index = $parent.index();
+            fileList.splice(index, 1);
+            $parent.fadeOut(850, function () {
+                $parent.remove()
+            });
+            var filess = document.getElementById('choose-file');
+            filess.value = '';
+
+            if (fileList.length == 0)
+            {
+                $list.css('display','none')
+            }
+
+        });
+
+        //点击上传按钮事件：
+        $button.on('click', function () {
+            var name = $('#name').val();
+            if (name == '') {
+                layer.msg('请输入名称');
+                return;
+            }
+            if (fileList.length > 6) {
+                layer.alert('最多允许上传6张图片');
+                return;
+            } else {
+                var formData = new FormData();
+                for (var i = 0, len = fileList.length; i < len; i++) {
+                    //console.log(fileList[i]);
+                    formData.append('upfile[]', fileList[i]);
+                }
+                formData.append('name', name);
+                // formData.append('catgory', catgory);
+                // formData.append('price', price);
+                // formData.append('desc', desc);
+                // formData.append('stock', stock);
+                // formData.append('status', status);
+                //console.log(formData);
+                $.ajax({
+                    url: './product_add.php',
+                    type: 'post',
+                    data: formData,
+                    dataType: 'json',
+                    processData: false,
+                    contentType: false,
+                    success: function (data) {
+                        if (data.status == '1') {
+                            layer.msg(data.content, { icon: 6 });
+                        } else if (data.status == '2') {
+                            layer.msg(data.content, { icon: 1 });
+                        }
+                    }
+                })
+            }
+        })
+    })
+
+
+
+
+    $("#province").change(function () {
+        var province = $("#province option:selected").text();
+        $.get("@Url.Action("getCity","House")", { "province": province }, function (data) {
+            $("#city").empty();
+            $("#region").empty();
+            // 实际的应用中，这里的option一般都是用循环生成多个了
+            //$("#cityChange").append("<option>请选择</option>");
+            for (var i = 0; i < data.city.length; i++) {
+                var option = $("<option>").val(data.city[i]).text(data.city[i]);
+                $("#city").append(option);
+            }
+
+            if (data.region != "") {
+                for (var i = 0; i < data.region.length; i++) {
+                    var option = $("<option>").val(data.region[i]).text(data.region[i]);
+                    $("#region").append(option);
+                }
+            }
+
+        })
+    })
+
+    $("#city").change(function () {
+        var region = $("#city option:selected").text();
+        $.get("@Url.Action("getRegion","House")", { "city": region }, function (data) {
+            $("#region").empty();
+            // 实际的应用中，这里的option一般都是用循环生成多个了
+            //$("#cityChange").append("<option>请选择</option>");
+            for (var i = 0; i < data.length; i++) {
+                var option = $("<option>").val(data[i]).text(data[i]);
+                $("#region").append(option);
+            }
+
+        })
+    })
+
+
+</script>
+
+
+
+<style>
+
+    .iconfont {
+            font-family: "iconfont" !important;
+            font-size: 14px;
+            font-style: normal;
+            -webkit-font-smoothing: antialiased;
+            -webkit-text-stroke-width: 0.1px;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        @@font-face {
+            font-family: 'iconfont';  /* project id 987132 */
+            src: url('//at.alicdn.com/t/font_987132_huga9t6yr1s.eot');
+            src: url('//at.alicdn.com/t/font_987132_huga9t6yr1s.eot?#iefix') format('embedded-opentype'),
+            url('//at.alicdn.com/t/font_987132_huga9t6yr1s.woff2') format('woff2'),
+            url('//at.alicdn.com/t/font_987132_huga9t6yr1s.woff') format('woff'),
+            url('//at.alicdn.com/t/font_987132_huga9t6yr1s.ttf') format('truetype'),
+            url('//at.alicdn.com/t/font_987132_huga9t6yr1s.svg#iconfont') format('svg');
+        }
+
+
+    .add_div {
+        width: 400px;
+        height: 500px;
+        border: solid #ccc 1px;
+        margin-top: 40px;
+        margin-left: 170px;
+        padding-left: 20px;
+    }
+
+    .file-list {
+        height: 125px;
+        display: none;
+        list-style-type: none;
+    }
+
+    .file-list img {
+        max-width: 70px;
+        vertical-align: middle;
+    }
+
+     .file-item {
+        float: left;
+        border:solid red px;
+        margin:5px 10px;
+    }
+
+
+
+    .add{
+        border: solid #ccc 1px;
+        border-radius: 5px;
+        width: 45px;
+        background-color: #ccc;
+        display: inline-block;
+        text-align: center;
+        cursor: pointer;
+    }
+    .file-del {
+            float: right;
+            margin-top: -9px;
+            margin-left: -2px;
+            cursor: pointer;
+            font-size: 12px;
+            z-index: 100;
+            position: absolute;
+        }
+
+
+</style>

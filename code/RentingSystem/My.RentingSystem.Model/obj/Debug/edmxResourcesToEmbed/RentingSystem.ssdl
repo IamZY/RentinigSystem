@@ -1,0 +1,141 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="RentingSystemModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Advertisement">
+    <Key>
+      <PropertyRef Name="aid" />
+    </Key>
+    <Property Name="aid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="avalue" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="DataDictionary">
+    <Key>
+      <PropertyRef Name="did" />
+    </Key>
+    <Property Name="did" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="dkey" Type="nvarchar" MaxLength="50" />
+    <Property Name="dvalue" Type="nvarchar" MaxLength="50" />
+    <Property Name="dvalue2" Type="nvarchar" MaxLength="50" />
+    <Property Name="dvalue3" Type="nvarchar" MaxLength="50" />
+    <Property Name="remark" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="House">
+    <Key>
+      <PropertyRef Name="hid" />
+    </Key>
+    <Property Name="hid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="area" Type="int" Nullable="false" />
+    <Property Name="price" Type="int" Nullable="false" />
+    <Property Name="pay" Type="nvarchar" MaxLength="50" />
+    <Property Name="unitType" Type="nvarchar" MaxLength="50" />
+    <Property Name="floor" Type="nvarchar" MaxLength="50" />
+    <Property Name="community" Type="nvarchar" MaxLength="50" />
+    <Property Name="pubPerson" Type="nvarchar" MaxLength="50" />
+    <Property Name="time" Type="nvarchar" MaxLength="50" />
+    <Property Name="type" Type="nvarchar" MaxLength="50" />
+    <Property Name="isRecommend" Type="nvarchar" MaxLength="50" />
+    <Property Name="houseDesc" Type="text" />
+    <Property Name="region" Type="nvarchar" MaxLength="50" />
+    <Property Name="state" Type="nvarchar" MaxLength="50" />
+    <Property Name="audit" Type="nvarchar" MaxLength="50" />
+    <Property Name="city" Type="nvarchar" MaxLength="50" />
+    <Property Name="province" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="HouseMessage">
+    <Key>
+      <PropertyRef Name="hmid" />
+    </Key>
+    <Property Name="hmid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="hid" Type="int" Nullable="false" />
+    <Property Name="mid" Type="int" Nullable="false" />
+    <Property Name="uid" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Message">
+    <Key>
+      <PropertyRef Name="mid" />
+    </Key>
+    <Property Name="mid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="message" Type="nvarchar" MaxLength="50" />
+    <Property Name="time" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Orders">
+    <Key>
+      <PropertyRef Name="oid" />
+    </Key>
+    <Property Name="oid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="duration" Type="int" Nullable="false" />
+    <Property Name="rent" Type="int" Nullable="false" />
+    <Property Name="state" Type="nvarchar" MaxLength="50" />
+    <Property Name="time" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="OrdersUserHouse">
+    <Key>
+      <PropertyRef Name="ouhid" />
+    </Key>
+    <Property Name="ouhid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="oid" Type="int" Nullable="false" />
+    <Property Name="uid" Type="int" Nullable="false" />
+    <Property Name="hid" Type="int" Nullable="false" />
+    <Property Name="pubTime" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Picture">
+    <Key>
+      <PropertyRef Name="pid" />
+    </Key>
+    <Property Name="pid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="path" Type="nvarchar" MaxLength="255" />
+    <Property Name="hid" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="uid" />
+    </Key>
+    <Property Name="uid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="username" Type="nvarchar" MaxLength="50" />
+    <Property Name="password" Type="nvarchar" MaxLength="50" />
+    <Property Name="isSys" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="UserAuth">
+    <Key>
+      <PropertyRef Name="uaid" />
+    </Key>
+    <Property Name="uaid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="main" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="users" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="orders" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="house" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="others" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="uid" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UserInfo">
+    <Key>
+      <PropertyRef Name="uiid" />
+    </Key>
+    <Property Name="uiid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="50" />
+    <Property Name="sex" Type="nvarchar" MaxLength="50" />
+    <Property Name="phone" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="UserUserInfo">
+    <Key>
+      <PropertyRef Name="uuid" />
+    </Key>
+    <Property Name="uuid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="uid" Type="int" Nullable="false" />
+    <Property Name="uiid" Type="int" Nullable="false" />
+    <Property Name="pubTime" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityContainer Name="RentingSystemModelStoreContainer">
+    <EntitySet Name="Advertisement" EntityType="Self.Advertisement" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DataDictionary" EntityType="Self.DataDictionary" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="House" EntityType="Self.House" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="HouseMessage" EntityType="Self.HouseMessage" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Message" EntityType="Self.Message" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Orders" EntityType="Self.Orders" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="OrdersUserHouse" EntityType="Self.OrdersUserHouse" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Picture" EntityType="Self.Picture" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserAuth" EntityType="Self.UserAuth" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserInfo" EntityType="Self.UserInfo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserUserInfo" EntityType="Self.UserUserInfo" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

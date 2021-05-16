@@ -1,0 +1,58 @@
+﻿@{
+    Layout = null;
+}
+
+<div class="width1190">
+    <div class="pro-left">
+
+        @{
+
+            foreach (var item in @ViewBag.houseDic["second"])
+            {
+                <dl>
+                    <dt><a href="@Url.Action("HouseInfo", "Rent", new { id = item.hid })"><img src="@item.pics[0].path" width="286" height="188" /></a></dt>
+                    <dd>
+                        <h3><a href="@Url.Action("HouseInfo", "Rent", new { id = item.hid })">@item.houseDesc</a></h3>
+                        <div class="pro-wei">
+                            <img src="~/assets/images/weizhi.png" width="12" height="16" /> <strong class="red">@item.community</strong>
+                        </div>
+                        <div class="pro-fang">@item.unitType @item.area ㎡ @item.floor</div>
+                        <div class="pra-fa">发布人：@item.pubPerson  发布时间：@item.time</div>
+                    </dd>
+                    <div class="price">¥ <strong>@item.price</strong><span class="font12">元/月</span></div>
+                    <div class="clears"></div>
+                </dl>
+            }
+        }
+
+    </div>
+
+    <div class="pro-right">
+        <h2 class="right-title">推荐房源</h2>
+        <div class="right-pro">
+
+            @{
+                var index = 0;
+                foreach (var item in @Session["recommendHouse"] as List<My.RentingSystem.Model.domain.HousePicture>)
+                {
+                    if (index == 4)
+                    {
+                        break;
+                    }
+                    <dl>
+                        <dt><a href="@Url.Action("HouseInfo", "Rent", new { id = item.hid })"><img src="@item.pics[0].path" /></a></dt>
+                        <dd>
+                            <h3><a href="proinfo.html">@item.houseDesc</a></h3>
+                            <div class="pro-fang">@item.unitType @item.area ㎡ @item.floor</div>
+                            <div class="right-price">@item.price 元/月</div>
+                        </dd>
+                    </dl>
+                    index++;
+                }
+            }
+        </div><!--right-pro/-->
+    </div><!--pro-right/-->
+
+
+    <div class="clears"></div>
+</div>

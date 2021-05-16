@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<objects xmlns="http://www.springframework.net">
+  <!--这里放容器里面的所有节点-->
+  <description>An  example that demonstrates simple IoC features.</description>
+  <!--name 必须要唯一的，type=类的全名称，所在的程序集-->
+  <!--<object name="BayonetRepository" type="Nt.SmartTransportation.DAL.BayonetRepository, Nt.SmartTransportation.DAL" singleton="false"></object>
+  <object name="InterSectionRepository" type="Nt.SmartTransportation.DAL.InterSectionRepository, Nt.SmartTransportation.DAL" singleton="false"></object>
+  <object name="TrafficFlowRepository" type="Nt.SmartTransportation.DAL.TrafficFlowRepository, Nt.SmartTransportation.DAL" singleton="false"></object>
+  <object name="DetectorRepository" type="Nt.SmartTransportation.DAL.DetectorRepository, Nt.SmartTransportation.DAL" singleton="false"></object>
+  <object name="DateManagementRepository" type="Nt.SmartTransportation.DAL.DateManagementRepository, Nt.SmartTransportation.DAL" singleton="false"></object>
+  <object name="TrafficAccidentRepository" type="Nt.SmartTransportation.DAL.TrafficAccidentRepository, Nt.SmartTransportation.DAL" singleton="false"></object>-->
+  <object name="UserRepository" type="My.RentingSystem.DAL.UserRepository, My.RentingSystem.DAL" singleton="false"></object>
+
+  <object name="HouseRepository" type="My.RentingSystem.DAL.HouseRepository, My.RentingSystem.DAL" singleton="false"></object>
+  
+  <object name="PictureRepository" type="My.RentingSystem.DAL.PictureRepository, My.RentingSystem.DAL" singleton="false"></object>
+
+  <object name="DataDictionaryRepository" type="My.RentingSystem.DAL.DataDictionaryRepository, My.RentingSystem.DAL" singleton="false"></object>
+
+  <object name="UserInfoRepository" type="My.RentingSystem.DAL.UserInfoRepository, My.RentingSystem.DAL" singleton="false"></object>
+
+  <object name="UserUserInfoRepository" type="My.RentingSystem.DAL.UserUserInfoRepository, My.RentingSystem.DAL" singleton="false"></object>
+
+  <object name="OrdersRepository" type="My.RentingSystem.DAL.OrdersRepository, My.RentingSystem.DAL" singleton="false"></object>
+
+  <object name="OrdersUserHouseRepository" type="My.RentingSystem.DAL.OrdersUserHouseRepository, My.RentingSystem.DAL" singleton="false"></object>
+
+  <object name="MessageRepository" type="My.RentingSystem.DAL.MessageRepository, My.RentingSystem.DAL" singleton="false"></object>
+
+  <object name="HouseMessageRepository" type="My.RentingSystem.DAL.HouseMessageRepository, My.RentingSystem.DAL" singleton="false"></object>
+
+  <object name="UserAuthRepository" type="My.RentingSystem.DAL.UserAuthRepository, My.RentingSystem.DAL" singleton="false"></object>
+  
+</objects>

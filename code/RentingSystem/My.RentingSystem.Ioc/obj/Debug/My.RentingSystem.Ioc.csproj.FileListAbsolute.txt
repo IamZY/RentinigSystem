@@ -1,0 +1,12 @@
+D:\src\vs2013\RentingSystem\My.RentingSystem.Ioc\bin\Debug\My.RentingSystem.Ioc.dll
+D:\src\vs2013\RentingSystem\My.RentingSystem.Ioc\bin\Debug\My.RentingSystem.Ioc.pdb
+D:\src\vs2013\RentingSystem\My.RentingSystem.Ioc\bin\Debug\Spring.Core.dll
+D:\src\vs2013\RentingSystem\My.RentingSystem.Ioc\bin\Debug\Common.Logging.dll
+D:\src\vs2013\RentingSystem\My.RentingSystem.Ioc\obj\Debug\My.RentingSystem.Ioc.dll
+D:\src\vs2013\RentingSystem\My.RentingSystem.Ioc\obj\Debug\My.RentingSystem.Ioc.pdb
+D:\src\vs2013\RentingSystem\My.RentingSystem.Ioc\bin\Debug\My.RentingSystem.Ioc.dll.config
+D:\src\vs2013\RentingSystem\My.RentingSystem.Ioc\bin\Debug\EntityFramework.dll
+D:\src\vs2013\RentingSystem\My.RentingSystem.Ioc\bin\Debug\EntityFramework.SqlServer.dll
+D:\src\vs2013\RentingSystem\My.RentingSystem.Ioc\bin\Debug\EntityFramework.xml
+D:\src\vs2013\RentingSystem\My.RentingSystem.Ioc\bin\Debug\EntityFramework.SqlServer.xml
+D:\src\vs2013\RentingSystem\My.RentingSystem.Ioc\obj\Debug\My.RentingSystem.Ioc.csprojResolveAssemblyReference.cache

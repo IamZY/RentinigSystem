@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<objects xmlns="http://www.springframework.net">
+  <!--<object type="Nt.SmartTransportation.BLL.BayonetService, Nt.SmartTransportation.BLL" singleton="false" name="BayonetService"></object>
+  <object type="Nt.SmartTransportation.BLL.InterSectionService, Nt.SmartTransportation.BLL" singleton="false" name="InterSectionService"></object>
+  <object type="Nt.SmartTransportation.BLL.TrafficFlowService, Nt.SmartTransportation.BLL" singleton="false" name="TrafficFlowService"></object>
+  <object type="Nt.SmartTransportation.BLL.DetectorService, Nt.SmartTransportation.BLL" singleton="false" name="DetectorService"></object>
+  <object type="Nt.SmartTransportation.BLL.DateManagementService, Nt.SmartTransportation.BLL" singleton="false" name="DateManagementService"></object>
+  <object type="Nt.SmartTransportation.BLL.TrafficAccidentService, Nt.SmartTransportation.BLL" singleton="false" name="TrafficAccidentService"></object>-->
+  <object type="My.RentingSystem.BLL.UserService, My.RentingSystem.BLL" singleton="false" name="UserService"></object>
+  <object type="My.RentingSystem.BLL.HouseService, My.RentingSystem.BLL" singleton="false" name="HouseService"></object>
+  
+  <object type="My.RentingSystem.BLL.PictureService, My.RentingSystem.BLL" singleton="false" name="PictureService"></object>
+  
+  <object type="My.RentingSystem.BLL.DataDictionaryService, My.RentingSystem.BLL" singleton="false" name="DataDictionaryService"></object>
+
+  <object type="My.RentingSystem.BLL.UserUserInfoService, My.RentingSystem.BLL" singleton="false" name="UserUserInfoService"></object>
+
+  <object type="My.RentingSystem.BLL.UserInfoService, My.RentingSystem.BLL" singleton="false" name="UserInfoService"></object>
+
+  <object type="My.RentingSystem.BLL.OrdersService, My.RentingSystem.BLL" singleton="false" name="OrdersService"></object>
+
+  <object type="My.RentingSystem.BLL.OrdersUserHouseService, My.RentingSystem.BLL" singleton="false" name="OrdersUserHouseService"></object>
+
+  <object type="My.RentingSystem.BLL.MessageService, My.RentingSystem.BLL" singleton="false" name="MessageService"></object>
+
+  <object type="My.RentingSystem.BLL.HouseMessageService, My.RentingSystem.BLL" singleton="false" name="HouseMessageService"></object>
+
+  <object type="My.RentingSystem.BLL.UserAuthService, My.RentingSystem.BLL" singleton="false" name="UserAuthService"></object>
+
+</objects>

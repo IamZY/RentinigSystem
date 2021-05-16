@@ -1,0 +1,141 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="RentingSystemModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Advertisement">
+    <Key>
+      <PropertyRef Name="aid" />
+    </Key>
+    <Property Name="aid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="avalue" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="HouseMessage">
+    <Key>
+      <PropertyRef Name="hmid" />
+    </Key>
+    <Property Name="hmid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="hid" Type="Int32" Nullable="false" />
+    <Property Name="mid" Type="Int32" Nullable="false" />
+    <Property Name="uid" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Message">
+    <Key>
+      <PropertyRef Name="mid" />
+    </Key>
+    <Property Name="mid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="message1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="time" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="uid" />
+    </Key>
+    <Property Name="uid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="username" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="isSys" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityContainer Name="RentingSystemEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Advertisement" EntityType="Self.Advertisement" />
+    <EntitySet Name="HouseMessage" EntityType="Self.HouseMessage" />
+    <EntitySet Name="Message" EntityType="Self.Message" />
+    <EntitySet Name="User" EntityType="Self.User" />
+    <EntitySet Name="Picture" EntityType="RentingSystemModel.Picture" />
+    <EntitySet Name="UserInfo" EntityType="RentingSystemModel.UserInfo" />
+    <EntitySet Name="UserUserInfo" EntityType="RentingSystemModel.UserUserInfo" />
+    <EntitySet Name="House" EntityType="RentingSystemModel.House" />
+    <EntitySet Name="OrdersUserHouse" EntityType="RentingSystemModel.OrdersUserHouse" />
+    <EntitySet Name="Orders" EntityType="RentingSystemModel.Orders" />
+    <EntitySet Name="UserAuth" EntityType="RentingSystemModel.UserAuth" />
+    <EntitySet Name="DataDictionary" EntityType="RentingSystemModel.DataDictionary" />
+  </EntityContainer>
+  <EntityType Name="Picture">
+    <Key>
+      <PropertyRef Name="pid" />
+    </Key>
+    <Property Name="pid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="path" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="hid" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UserInfo">
+    <Key>
+      <PropertyRef Name="uiid" />
+    </Key>
+    <Property Name="uiid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="sex" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="phone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="UserUserInfo">
+    <Key>
+      <PropertyRef Name="uuid" />
+    </Key>
+    <Property Name="uuid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="uid" Type="Int32" Nullable="false" />
+    <Property Name="uiid" Type="Int32" Nullable="false" />
+    <Property Name="pubTime" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="House">
+    <Key>
+      <PropertyRef Name="hid" />
+    </Key>
+    <Property Name="hid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="area" Type="Int32" Nullable="false" />
+    <Property Name="price" Type="Int32" Nullable="false" />
+    <Property Name="pay" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="unitType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="floor" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="community" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="pubPerson" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="time" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="isRecommend" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="houseDesc" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="region" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="state" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="audit" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="city" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="province" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="OrdersUserHouse">
+    <Key>
+      <PropertyRef Name="ouhid" />
+    </Key>
+    <Property Name="ouhid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="oid" Type="Int32" Nullable="false" />
+    <Property Name="uid" Type="Int32" Nullable="false" />
+    <Property Name="hid" Type="Int32" Nullable="false" />
+    <Property Name="pubTime" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Orders">
+    <Key>
+      <PropertyRef Name="oid" />
+    </Key>
+    <Property Name="oid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="duration" Type="Int32" Nullable="false" />
+    <Property Name="rent" Type="Int32" Nullable="false" />
+    <Property Name="state" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="time" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="UserAuth">
+    <Key>
+      <PropertyRef Name="uaid" />
+    </Key>
+    <Property Name="uaid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="main" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="users" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="orders" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="house" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="others" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="uid" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DataDictionary">
+    <Key>
+      <PropertyRef Name="did" />
+    </Key>
+    <Property Name="did" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="dkey" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="dvalue" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="dvalue2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="dvalue3" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="remark" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+</Schema>

@@ -1,0 +1,12 @@
+D:\src\vs2013\RentingSystem\My.RentingSystem.Model\bin\Debug\My.RentingSystem.Model.dll
+D:\src\vs2013\RentingSystem\My.RentingSystem.Model\bin\Debug\My.RentingSystem.Model.pdb
+D:\src\vs2013\RentingSystem\My.RentingSystem.Model\bin\Debug\My.RentingSystem.Common.dll
+D:\src\vs2013\RentingSystem\My.RentingSystem.Model\bin\Debug\My.RentingSystem.Common.pdb
+D:\src\vs2013\RentingSystem\My.RentingSystem.Model\obj\Debug\My.RentingSystem.Model.csprojResolveAssemblyReference.cache
+D:\src\vs2013\RentingSystem\My.RentingSystem.Model\obj\Debug\My.RentingSystem.Model.dll
+D:\src\vs2013\RentingSystem\My.RentingSystem.Model\obj\Debug\My.RentingSystem.Model.pdb
+D:\src\vs2013\RentingSystem\My.RentingSystem.Model\bin\Debug\My.RentingSystem.Model.dll.config
+D:\src\vs2013\RentingSystem\My.RentingSystem.Model\bin\Debug\EntityFramework.dll
+D:\src\vs2013\RentingSystem\My.RentingSystem.Model\bin\Debug\EntityFramework.SqlServer.dll
+D:\src\vs2013\RentingSystem\My.RentingSystem.Model\bin\Debug\EntityFramework.xml
+D:\src\vs2013\RentingSystem\My.RentingSystem.Model\bin\Debug\EntityFramework.SqlServer.xml

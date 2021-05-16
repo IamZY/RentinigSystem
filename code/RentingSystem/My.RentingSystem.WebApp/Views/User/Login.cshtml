@@ -1,0 +1,42 @@
+﻿@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var msg = @ViewBag.message;
+}
+
+<script>
+    $(document).ready(function () {
+        if(@msg != null)
+        {
+            alert(@msg)
+        }
+    })
+</script>
+
+<div class="content">
+    <div class="width1190">
+        <div class="reg-logo">
+            <form id="signupForm" method="post" action="~/User/Login" class="zcform">
+                <p class="clearfix">
+                    <label class="one" for="agent">用户名：</label>
+                    <input id="agent" name="username" type="text" class="required" value placeholder="请输入您的用户名" />
+                </p>
+                <p class="clearfix">
+                    <label class="one" for="password">登录密码：</label>
+                    <input id="password" name="password" type="password" class="{required:true,rangelength:[8,20],}" value placeholder="请输入密码" />
+                </p>
+                <!--<p class="clearfix agreement">
+                    <input type="checkbox" />
+                    <b class="left">已阅读并同意<a href="#">《用户协议》</a></b>
+                </p>-->
+                <p class="clearfix"><input class="submit" type="submit" value="立即登录" /></p>
+                @*<p class="clearfix"><button class="submit" id="submit" value="立即登录" /></p>*@
+            </form>
+            <div class="reg-logo-right">
+                <h3>如果您没有账号，请</h3>
+                <a href="~/User/Reg" class="logo-a">立即注册</a>
+            </div><!--reg-logo-right/-->
+            <div class="clears"></div>
+        </div><!--reg-logo/-->
+    </div><!--width1190/-->
+</div><!--content/-->

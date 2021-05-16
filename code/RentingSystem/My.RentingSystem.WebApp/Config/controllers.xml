@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<objects xmlns="http://www.springframework.net">
+  <!--<object type="Nt.SmartTransportation.WebApp.Controllers.LoginController, Nt.SmartTransportation.WebApp" singleton="false" >-->
+  <!--<object type="Nt.SmartTransportation.WebApp.Controllers.BaseController, Nt.SmartTransportation.WebApp" singleton="false" >
+    <property name="BayonetService" ref="BayonetService" />
+  </object>
+
+  <object type="Nt.SmartTransportation.WebApp.Controllers.BaseController, Nt.SmartTransportation.WebApp" singleton="false" >
+    <property name="InterSectionService" ref="InterSectionService" />
+  </object>
+
+  <object type="Nt.SmartTransportation.WebApp.Controllers.BaseController, Nt.SmartTransportation.WebApp" singleton="false" >
+    <property name="TrafficFlowService" ref="TrafficFlowService" />
+  </object>
+
+  <object type="Nt.SmartTransportation.WebApp.Controllers.BaseController, Nt.SmartTransportation.WebApp" singleton="false" >
+    <property name="DetectorService" ref="DetectorService" />
+  </object>
+
+  <object type="Nt.SmartTransportation.WebApp.Controllers.BaseController, Nt.SmartTransportation.WebApp" singleton="false" >
+    <property name="DateManagementService" ref="DateManagementService" />
+  </object>
+
+  <object type="Nt.SmartTransportation.WebApp.Controllers.BaseController, Nt.SmartTransportation.WebApp" singleton="false" >
+    <property name="TrafficAccidentService" ref="TrafficAccidentService" />
+  </object>-->
+
+  <object type="My.RentingSystem.WebApp.Controllers.BaseController, My.RentingSystem.WebApp" singleton="false" >
+    <property name="UserService" ref="UserService" />
+  </object>
+
+  <object type="My.RentingSystem.WebApp.Controllers.BaseController, My.RentingSystem.WebApp" singleton="false" >
+    <property name="HouseService" ref="HouseService" />
+  </object>
+  
+  <object type="My.RentingSystem.WebApp.Controllers.BaseController, My.RentingSystem.WebApp" singleton="false" >
+    <property name="PictureService" ref="PictureService" />
+  </object>
+
+  <object type="My.RentingSystem.WebApp.Controllers.BaseController, My.RentingSystem.WebApp" singleton="false" >
+    <property name="DataDictionaryService" ref="DataDictionaryService" />
+  </object>
+
+  <object type="My.RentingSystem.WebApp.Controllers.BaseController, My.RentingSystem.WebApp" singleton="false" >
+    <property name="UserInfoService" ref="UserInfoService" />
+  </object>
+
+
+  <object type="My.RentingSystem.WebApp.Controllers.BaseController, My.RentingSystem.WebApp" singleton="false" >
+    <property name="UserUserInfoService" ref="UserUserInfoService" />
+  </object>
+
+  <object type="My.RentingSystem.WebApp.Controllers.BaseController, My.RentingSystem.WebApp" singleton="false" >
+    <property name="OrdersService" ref="OrdersService" />
+  </object>
+
+  <object type="My.RentingSystem.WebApp.Controllers.BaseController, My.RentingSystem.WebApp" singleton="false" >
+    <property name="OrdersUserHouseService" ref="OrdersUserHouseService" />
+  </object>
+  
+  <object type="My.RentingSystem.WebApp.Controllers.BaseController, My.RentingSystem.WebApp" singleton="false" >
+    <property name="MessageService" ref="MessageService" />
+  </object>
+  
+  <object type="My.RentingSystem.WebApp.Controllers.BaseController, My.RentingSystem.WebApp" singleton="false" >
+    <property name="HouseMessageService" ref="HouseMessageService" />
+  </object>
+
+  <object type="My.RentingSystem.WebApp.Controllers.BaseController, My.RentingSystem.WebApp" singleton="false" >
+    <property name="UserAuthService" ref="UserAuthService" />
+  </object>
+</objects>

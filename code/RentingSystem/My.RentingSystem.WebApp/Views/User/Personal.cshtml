@@ -1,0 +1,79 @@
+﻿@{
+    ViewBag.Title = "Personal";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var user = @Session["user"] as My.RentingSystem.Model.User;
+}
+
+<div class="content">
+    <div class="width1190">
+        <div class="vip-left">
+            <div class="vipNav">
+                <h3 class="vipTitle">会员中心</h3>
+                <dl>
+                    <dt class="vipIcon3">账户设置</dt>
+                    <dd>
+                        <a href="@Url.Action("Personal", "User", new { id=user.uid })" class="vipNavCur">我的资料</a>
+                        <a href="#">账户密码设置</a>
+                    </dd>
+                    <dt class="vipIcon1">我的内容</dt>
+                    <dd>
+                        <a href="@Url.Action("MyOrder", "Orders", new { id = @ViewBag.user.uid })">我的订单</a>
+                        <a href="@Url.Action("Index", "House", new { id=@user.uid })">发布房屋</a>
+                        <a href="@Url.Action("MyAddHouse", "House", new { id=@user.uid })">我的发布</a>
+                    </dd>
+                </dl>
+            </div><!--vipNav/-->
+        </div><!--vip-left/-->
+        <div class="vip-right">
+            
+            <h3 class="vipright-title">修改资料</h3>
+            <table class="grinfo">
+                <tbody>
+                    <tr>
+                        <th>手机号：</th>
+                        <td>
+                            <strong>@ViewBag.userInfo.phone</strong>
+                            @*&nbsp;&nbsp;&nbsp;&nbsp;<a href="javascript:;"><span style="color:#888;cursor:pointer">(修改手机号)</span></a>*@
+                        </td>
+                    </tr>
+                    <tr>
+                        <th><span class="red">*</span> 昵称：</th>
+                        <td>
+                            @*<input class="inp inw" type="text" id="title" value="@ViewBag.userInfo.name" maxlength="14">*@
+                            <strong>@ViewBag.userInfo.name</strong>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th><span class="red">*</span> 性 &nbsp; &nbsp;别：</th>
+                        <td>
+                            @*<input type="radio" value="2" id="rbSex1" name="sex">
+                            <label for="rbSex1">女</label>
+                            <input type="radio" value="1" id="rbSex2" name="sex">
+                            <label for="rbSex2">男</label>
+                            <span id="Sex_Tip"></span>*@
+                            <strong>@ViewBag.userInfo.sex</strong>
+                        </td>
+                    </tr>    
+                    @*<tr>
+                        <th>&nbsp;</th>
+                        <td colspan="2">
+                            <label class="butt" id="butt">
+                                <input type="submit" class="member_mod_buttom" id="modUser" value="完成修改" />
+                            </label>
+                        </td>
+                    </tr>*@
+                </tbody>
+            </table>
+        </div><!--vip-right/-->
+        <div class="clearfix"></div>
+    </div><!--width1190/-->
+</div><!--content/-->
+
+<script>
+    @*$("#modUser").click(function () {
+        $.post("@Url.Action("modUser","User")", {
+            "": ,
+            "":
+        }, function (data) { })
+    })*@
+</script>

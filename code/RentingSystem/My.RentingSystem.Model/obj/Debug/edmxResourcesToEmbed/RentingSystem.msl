@@ -1,0 +1,141 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="RentingSystemModelStoreContainer" CdmEntityContainer="RentingSystemEntities">
+    <EntitySetMapping Name="Advertisement">
+      <EntityTypeMapping TypeName="RentingSystemModel.Advertisement">
+        <MappingFragment StoreEntitySet="Advertisement">
+          <ScalarProperty Name="aid" ColumnName="aid" />
+          <ScalarProperty Name="avalue" ColumnName="avalue" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HouseMessage">
+      <EntityTypeMapping TypeName="RentingSystemModel.HouseMessage">
+        <MappingFragment StoreEntitySet="HouseMessage">
+          <ScalarProperty Name="uid" ColumnName="uid" />
+          <ScalarProperty Name="hmid" ColumnName="hmid" />
+          <ScalarProperty Name="hid" ColumnName="hid" />
+          <ScalarProperty Name="mid" ColumnName="mid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Message">
+      <EntityTypeMapping TypeName="RentingSystemModel.Message">
+        <MappingFragment StoreEntitySet="Message">
+          <ScalarProperty Name="time" ColumnName="time" />
+          <ScalarProperty Name="mid" ColumnName="mid" />
+          <ScalarProperty Name="message1" ColumnName="message" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="User">
+      <EntityTypeMapping TypeName="RentingSystemModel.User">
+        <MappingFragment StoreEntitySet="User">
+          <ScalarProperty Name="isSys" ColumnName="isSys" />
+          <ScalarProperty Name="uid" ColumnName="uid" />
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="password" ColumnName="password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Picture">
+      <EntityTypeMapping TypeName="RentingSystemModel.Picture">
+        <MappingFragment StoreEntitySet="Picture">
+          <ScalarProperty Name="hid" ColumnName="hid" />
+          <ScalarProperty Name="path" ColumnName="path" />
+          <ScalarProperty Name="pid" ColumnName="pid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserInfo">
+      <EntityTypeMapping TypeName="RentingSystemModel.UserInfo">
+        <MappingFragment StoreEntitySet="UserInfo">
+          <ScalarProperty Name="phone" ColumnName="phone" />
+          <ScalarProperty Name="sex" ColumnName="sex" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="uiid" ColumnName="uiid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserUserInfo">
+      <EntityTypeMapping TypeName="RentingSystemModel.UserUserInfo">
+        <MappingFragment StoreEntitySet="UserUserInfo">
+          <ScalarProperty Name="pubTime" ColumnName="pubTime" />
+          <ScalarProperty Name="uiid" ColumnName="uiid" />
+          <ScalarProperty Name="uid" ColumnName="uid" />
+          <ScalarProperty Name="uuid" ColumnName="uuid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="House">
+      <EntityTypeMapping TypeName="RentingSystemModel.House">
+        <MappingFragment StoreEntitySet="House">
+          <ScalarProperty Name="province" ColumnName="province" />
+          <ScalarProperty Name="city" ColumnName="city" />
+          <ScalarProperty Name="audit" ColumnName="audit" />
+          <ScalarProperty Name="state" ColumnName="state" />
+          <ScalarProperty Name="region" ColumnName="region" />
+          <ScalarProperty Name="houseDesc" ColumnName="houseDesc" />
+          <ScalarProperty Name="isRecommend" ColumnName="isRecommend" />
+          <ScalarProperty Name="type" ColumnName="type" />
+          <ScalarProperty Name="time" ColumnName="time" />
+          <ScalarProperty Name="pubPerson" ColumnName="pubPerson" />
+          <ScalarProperty Name="community" ColumnName="community" />
+          <ScalarProperty Name="floor" ColumnName="floor" />
+          <ScalarProperty Name="unitType" ColumnName="unitType" />
+          <ScalarProperty Name="pay" ColumnName="pay" />
+          <ScalarProperty Name="price" ColumnName="price" />
+          <ScalarProperty Name="area" ColumnName="area" />
+          <ScalarProperty Name="hid" ColumnName="hid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OrdersUserHouse">
+      <EntityTypeMapping TypeName="RentingSystemModel.OrdersUserHouse">
+        <MappingFragment StoreEntitySet="OrdersUserHouse">
+          <ScalarProperty Name="pubTime" ColumnName="pubTime" />
+          <ScalarProperty Name="hid" ColumnName="hid" />
+          <ScalarProperty Name="uid" ColumnName="uid" />
+          <ScalarProperty Name="oid" ColumnName="oid" />
+          <ScalarProperty Name="ouhid" ColumnName="ouhid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Orders">
+      <EntityTypeMapping TypeName="RentingSystemModel.Orders">
+        <MappingFragment StoreEntitySet="Orders">
+          <ScalarProperty Name="time" ColumnName="time" />
+          <ScalarProperty Name="state" ColumnName="state" />
+          <ScalarProperty Name="rent" ColumnName="rent" />
+          <ScalarProperty Name="duration" ColumnName="duration" />
+          <ScalarProperty Name="oid" ColumnName="oid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserAuth">
+      <EntityTypeMapping TypeName="RentingSystemModel.UserAuth">
+        <MappingFragment StoreEntitySet="UserAuth">
+          <ScalarProperty Name="uid" ColumnName="uid" />
+          <ScalarProperty Name="others" ColumnName="others" />
+          <ScalarProperty Name="house" ColumnName="house" />
+          <ScalarProperty Name="orders" ColumnName="orders" />
+          <ScalarProperty Name="users" ColumnName="users" />
+          <ScalarProperty Name="main" ColumnName="main" />
+          <ScalarProperty Name="uaid" ColumnName="uaid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DataDictionary">
+      <EntityTypeMapping TypeName="RentingSystemModel.DataDictionary">
+        <MappingFragment StoreEntitySet="DataDictionary">
+          <ScalarProperty Name="remark" ColumnName="remark" />
+          <ScalarProperty Name="dvalue3" ColumnName="dvalue3" />
+          <ScalarProperty Name="dvalue2" ColumnName="dvalue2" />
+          <ScalarProperty Name="dvalue" ColumnName="dvalue" />
+          <ScalarProperty Name="dkey" ColumnName="dkey" />
+          <ScalarProperty Name="did" ColumnName="did" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

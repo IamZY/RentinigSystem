@@ -1,0 +1,110 @@
+﻿@{
+    ViewBag.Title = "Order";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    My.RentingSystem.Model.User user = @Session["user"] as My.RentingSystem.Model.User;
+}
+
+<div class="content">
+    <div class="width1190">
+        <div>
+
+            <h3 class="vipright-title">确认订单</h3>
+            <table class="grinfo">
+                <tbody>
+                    <tr>
+                        <th>房屋编号：</th>
+                        <td>
+                            <strong>@ViewBag.house.hid</strong>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>售价：</th>
+                        <td>
+                            <strong>@ViewBag.house.price / @ViewBag.house.pay</strong>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>户型：</th>
+                        <td>
+                            <strong>@ViewBag.house.unitType</strong>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <th>面积：</th>
+                        <td>
+                            <strong>@ViewBag.house.area ㎡</strong>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <th>楼层：</th>
+                        <td>
+                            <strong>@ViewBag.house.floor</strong>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <th>小区：</th>
+                        <td>
+                            <strong>@ViewBag.house.community</strong>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <th>租赁时长：</th>
+                        <td>
+                            <input type="text" id="duration" style="width:10%" /> 个月
+                        </td>
+                    </tr>
+
+
+                    <tr>
+                        <th>&nbsp;</th>
+                        <td colspan="2">
+                            <span style="color:red">*包含500元服务费</span>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <th>&nbsp;</th>
+                        <td colspan="2">
+                            <label class="butt" id="butt">
+                                @*<span style="color:red">*包含500元服务费</span>*@
+                                <button class="member_mod_buttom" id="btn">立即下单</button>
+                            </label>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div><!--vip-right/-->
+        <div class="clearfix"></div>
+    </div><!--width1190/-->
+</div><!--content/-->
+<script>
+    $("#btn").click(function () {
+        //alert("aaa")
+        @*$.post(
+            "PlaceOrder", 
+            {
+                id:@ViewBag.house.hid,
+                duration: $("#duration").val()
+            }, 
+            function (data) { 
+                    
+            })*@
+        var duration = $("#duration").val()
+        //alert(duration)
+        $.post(
+            "@Url.Action("PlaceOrder","Orders")", 
+            { id: @ViewBag.house.hid,duration: $("#duration").val() }, 
+            function (data) {  
+                if(data == "success") {
+                    window.location.href="@Url.Action("MyOrder", "Orders", new { id = user.uid })";
+                } else {
+                    alert("下单失败!")
+                }
+            })
+
+    })
+</script>

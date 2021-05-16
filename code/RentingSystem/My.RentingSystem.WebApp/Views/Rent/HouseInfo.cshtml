@@ -1,0 +1,204 @@
+﻿@{
+    ViewBag.Title = @ViewBag.house.community;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="content">
+    <div class="width1190" style="width:1000px;">
+        <div class="proImg fl">
+            <img src="@ViewBag.house.pics[0].path" />
+        </div><!--proImg/-->
+        <div class="proText fr">
+            <h3 class="proTitle">@ViewBag.house.region  @ViewBag.house.unitType @ViewBag.house.houseDesc </h3>
+            <div class="proText1">
+                编号：@ViewBag.house.hid<br />
+                售价：@ViewBag.house.price / @ViewBag.house.pay<br />
+                户型：@ViewBag.house.unitType<br />
+                面积：@ViewBag.house.area ㎡<br />
+                楼层：@ViewBag.house.floor<br />
+                装修：简单装修<br />
+                小区：@ViewBag.house.community
+            </div>
+            <div class="xun-car">
+                <a href="#" id="order" class="xwjg">¥<strong>@ViewBag.house.price</strong>元</a>
+                @*<a href="javascript:;" class="projrgwc">
+                    现在留言
+                </a>*@
+            </div><!--xun-car/-->
+        </div><!--proText/-->
+        <div class="clears"></div>
+    </div><!--width1190/-->
+    <div class="proBox" style="width:1000px;margin:10px auto;">
+        <div class="proEq">
+            <ul class="fl" id="detail">
+                <li class="proEqCur">房源详情</li>
+                <li>房源图片</li>
+                <li>留言详情</li>
+            </ul>
+            <div class="lxkf fr"><a href="http://wpa.qq.com/msgrd?v=3&uin=1072631488&site=qq&menu=yes" target="_blank"></a></div>
+            <div class="clears"></div>
+        </div><!--proEq/-->
+        <div class="proList">
+            <h2 style="color: #757575">房屋基本配置</h2>
+            <hr />
+            <div class="household-appliances">
+                <ul>
+                    <li>
+                        <i class="iconfont icon-chuang"></i>
+                        <span>床</span>
+                    </li>
+                    <li>
+                        <i class="iconfont icon-kongtiao"></i>
+                        <span>空调</span>
+                    </li>
+                    <li>
+                        <i class="iconfont icon-yigui"></i>
+                        <span>衣柜</span>
+                    </li>
+                    <li>
+                        <i class="iconfont icon-iconyihuifu-"></i>
+                        <span>桌椅</span>
+                    </li>
+                    <li>
+                        <i class="iconfont icon-xiyiji"></i>
+                        <span>洗衣机</span>
+                    </li>
+                    <li>
+                        <i class="iconfont icon-shafa"></i>
+                        <span>沙发</span>
+                    </li>
+                    <li>
+                        <i class="iconfont icon-xiaodugui"></i>
+                        <span>消毒柜</span>
+                    </li>
+                    <li>
+                        <i class="iconfont icon-weibolu"></i>
+                        <span>微波炉</span>
+                    </li>
+                    <li>
+                        <i class="iconfont icon-chouyouyanji"></i>
+                        <span>抽油烟机</span>
+                    </li>
+                    <li>
+                        <i class="iconfont icon-dianshi"></i>
+                        <span>电视</span>
+                    </li>
+                    <li>
+                        <i class="iconfont icon-meiqitianranqi"></i>
+                        <span>天然气</span>
+                    </li>
+                    <li>
+                        <i class="iconfont icon-kuandai"></i>
+                        <span>宽带</span>
+                    </li>
+                    <li>
+                        <i class="iconfont icon-reshuiqianzhuang"></i>
+                        <span>热水器</span>
+                    </li>
+                    <li>
+                        <i class="iconfont icon-bingxiang"></i>
+                        <span>冰箱</span>
+                    </li>
+                </ul>
+            </div>
+            <br />
+            <h2 style="color: #757575">房屋图片</h2>
+            <hr />
+            <br />
+            @{
+                foreach (var item in @ViewBag.house.pics)
+                {
+                    <img src="@item.path" />
+                }
+            }
+            <br />
+            <h2 style="color: #757575">房屋详细信息</h2>
+            <hr />
+            @ViewBag.house.houseDesc
+        </div><!--proList/-->
+        <div class="proList">
+            @{
+                foreach (var item in @ViewBag.house.pics)
+                {
+                    <img src="@item.path" />
+                }
+            }
+        </div><!--proList/-->
+        <div class="proList">
+            @{
+                foreach(var item in @ViewBag.hm) 
+                {
+                    用户: <text>@item.user.username</text> 时间: <text>@item.message.time</text> <br />
+                    <text>@item.message.message1</text>
+                    <hr />
+                }
+            }
+            
+            @if (@Session["user"] != null)
+            {
+                <textarea id="msg" style="width:100%;height:100px;resize:none"></textarea>
+                <button style="float:right" id="btn">留言</button>
+            }
+            else 
+            {
+                <span>请先登录后再留言...</span>
+            }
+            
+        </div><!--proList/-->
+    </div><!--proBox/-->
+</div><!--content/-->
+
+<script>
+
+    $(document).ready(function(){
+        //$(this).addClass("proEqCur").siblings("li").removeClass("proEqCur");
+        //var proeq=$(this).index();
+        //console.log(proeq)
+        //$(".proList").eq(proeq).fadeIn().siblings(".proList").hide();
+        $("#detail li").eq(@ViewBag.detail).addClass("proEqCur").siblings("li").removeClass("proEqCur");
+        $(".proList").eq(@ViewBag.detail).fadeIn().siblings(".proList").hide();
+    })
+
+    $("#order").click(function () {
+
+        $.get("@Url.Action("Index", "Orders")", function (data) {
+            if (data === "error") {
+                ("用户尚未登录，正转到登录页面...")
+                setTimeout({}, 2000);
+                window.location.href = "@Url.Action("Login", "User")";
+            }
+            if (data === "success")
+            {
+                window.location.href = "@Url.Action("order", "Orders", new { id = @ViewBag.house.hid })"
+            }
+        })
+
+    })
+
+    $("#btn").click(function () {
+
+        var msg = $("#msg").val()
+        console.log(msg)
+        var proeq = $(this).index();
+        console.log(proeq)
+        $.post("@Url.Action("LeaveMessage","Rent")",
+            {
+                "msg": msg,
+                "hid": @ViewBag.house.hid,
+                "proeq": proeq
+            },
+            function (data)
+            {
+                if (data == "success") 
+                {
+                    alert("留言成功!")
+                    //proeq = data.proeq
+                    @*window.location.href = "@Url.Action("HouseInfo", "Rent", 
+                    new { id=@ViewBag.house.hid,flag = proeq })"*@
+                    window.location.href = "/Rent/HouseInfo?flag=2&id=" + @ViewBag.house.hid
+                }
+            }
+        )
+    })
+
+</script>
